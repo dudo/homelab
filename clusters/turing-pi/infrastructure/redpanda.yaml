@@ -1,0 +1,19 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: redpanda
+  namespace: argocd
+spec:
+  project: infra
+  source:
+    repoURL: https://github.com/dudo/homelab.git
+    path: infrastructure/redpanda/overlays/local
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: redpanda
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true

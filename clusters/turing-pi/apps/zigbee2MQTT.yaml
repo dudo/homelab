@@ -1,0 +1,19 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: zigbee2MQTT
+  namespace: argocd
+spec:
+  project: apps
+  source:
+    repoURL: https://github.com/dudo/homelab.git
+    path: applications/zigbee2MQTT/overlays/local
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: home
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true

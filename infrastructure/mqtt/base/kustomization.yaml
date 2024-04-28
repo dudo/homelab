@@ -1,0 +1,10 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+helmCharts:
+  - name: zilla
+    repo: oci://ghcr.io/aklivity/charts
+    version: 0.9.68
+    releaseName: mqtt
+    namespace: zilla
+    valuesFile: values.yaml

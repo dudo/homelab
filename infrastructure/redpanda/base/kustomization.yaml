@@ -1,0 +1,13 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - https://github.com/redpanda-data/redpanda//src/go/k8s/config/crd
+  - redpanda.yaml
+helmCharts:
+  - name: operator
+    repo: https://charts.redpanda.com
+    version: 0.4.19
+    releaseName: redpanda-operator
+    namespace: redpanda
+    valuesFile: values.yaml
