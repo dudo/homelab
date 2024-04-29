@@ -5,3 +5,4 @@ resources:
   - gateway-api
   - runtime-class.yaml
   - storage-class.yaml
+  - coredns.yaml
