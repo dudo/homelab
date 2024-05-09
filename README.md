@@ -134,6 +134,11 @@ When spinning up the cluster for the first time, there are 3 primary steps.
 
     # optional check to ensure a node is fully operational
     k3s check-config
+
+    # Label
+
+    kubectl label nodes rk11 rk12 rk13 jetson1 kubernetes.io/role=worker
+    kubectl label nodes jetson1 nvidia.com/gpu.present=true
     ```
 
 2. Bootstrap `cilium`
