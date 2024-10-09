@@ -34,13 +34,12 @@ spec:
           repoURL: '{{repoURL}}'
           helm:
             valueFiles:
-              - '$values/{{appName}}/values.yaml'
+              - '$values/charts/{{appName}}/values.yaml'
             parameters:
               - name: clusterName
                 value: local
         - repoURL: https://github.com/dudo/homelab.git
           targetRevision: HEAD
-          path: charts
           ref: values
       destination:
         server: https://kubernetes.default.svc
