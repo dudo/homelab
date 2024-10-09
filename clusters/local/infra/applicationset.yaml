@@ -9,15 +9,19 @@ spec:
     - list:
         elements:
           - appName: cert-manager
+            namespace: cert-manager
             repoURL: https://charts.jetstack.io
             version: v1.16.0
           - appName: metrics-server
+            namespace: metrics-server
             repoURL: https://kubernetes-sigs.github.io/metrics-server
             version: 3.12.2
           - appName: node-feature-discovery
+            namespace: node-feature-discovery
             repoURL: https://kubernetes-sigs.github.io/node-feature-discovery/charts
             version: v0.16.4
           - appName: kubernetes-dashboard
+            namespace: kubernetes-dashboard
             repoURL: https://kubernetes.github.io/dashboard/
             version: 7.8.0
 
@@ -43,10 +47,13 @@ spec:
           ref: values
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{appName}}'
+        namespace: '{{namespace}}'
       syncPolicy:
         automated:
           prune: true
           selfHeal: true
+        managedNamespaceMetadata:
+          labels:
+          annotations:
         syncOptions:
           - CreateNamespace=true
