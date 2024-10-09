@@ -1,0 +1,27 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: clusters
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - cluster: turing-pi
+  template:
+    metadata:
+      name: '{{cluster}}-cluster'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/dudo/homelab.git
+        targetRevision: HEAD
+        path: 'clusters/{{cluster}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: argocd
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true

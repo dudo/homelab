@@ -1,0 +1,8 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Repository
+metadata:
+  name: node-feature-discovery
+spec:
+  url: https://kubernetes-sigs.github.io/node-feature-discovery
+  type: helm

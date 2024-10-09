@@ -1,0 +1,45 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: turing-pi-charts
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - appName: cert-manager
+            repoURL: https://charts.jetstack.io
+            version: v1.11.0
+          - appName: metrics-server
+            repoURL: https://kubernetes-sigs.github.io/metrics-server
+            version: 5.11.0
+          - appName: node-feature-discovery
+            repoURL: https://kubernetes-sigs.github.io/node-feature-discovery
+            version: v0.13.0
+          - appName: kubernetes-dashboard
+            repoURL: https://kubernetes.github.io/dashboard/
+            version: 6.0.0
+
+  template:
+    metadata:
+      name: turing-pi-{{appName}}
+    spec:
+      project: infra
+      source:
+        repoURL: '{{repoURL}}'
+        targetRevision: '{{version}}'
+        chart: '{{appName}}'
+        helm:
+          valueFiles:
+            - '../../../charts/{{appName}}/values.yaml'
+          parameters:
+            - name: clusterName
+              value: turing-pi
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{appName}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true

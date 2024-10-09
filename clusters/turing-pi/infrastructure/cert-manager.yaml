@@ -8,8 +8,8 @@ spec:
   project: infra
   source:
     repoURL: https://github.com/dudo/homelab.git
-    path: infrastructure/cert-manager/overlays/local
     targetRevision: HEAD
+    path: infrastructure/cert-manager/overlays/local
   destination:
     server: https://kubernetes.default.svc
     namespace: cert-manager

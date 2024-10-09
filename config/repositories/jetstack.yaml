@@ -1,0 +1,8 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Repository
+metadata:
+  name: jetstack
+spec:
+  url: https://charts.jetstack.io
+  type: helm

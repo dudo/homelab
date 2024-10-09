@@ -1,0 +1,9 @@
+---
+serviceAccount:
+  create: true
+rbac:
+  create: true
+ingress:
+  enabled: true
+  hosts:
+    - '{{ .Values.clusterName }}.example.com'

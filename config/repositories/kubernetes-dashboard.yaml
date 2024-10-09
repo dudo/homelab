@@ -1,0 +1,8 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Repository
+metadata:
+  name: kubernetes-dashboard
+spec:
+  url: https://kubernetes.github.io/dashboard/
+  type: helm

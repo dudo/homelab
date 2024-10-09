@@ -8,8 +8,8 @@ spec:
   project: infra
   source:
     repoURL: https://github.com/dudo/homelab.git
-    path: infrastructure/redpanda/overlays/local
     targetRevision: HEAD
+    path: infrastructure/redpanda/overlays/local
   destination:
     server: https://kubernetes.default.svc
     namespace: redpanda

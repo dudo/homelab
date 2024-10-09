@@ -1,0 +1,5 @@
+---
+featureGates:
+  - name: CustomFeature
+    matchOn:
+      - feature1: true

@@ -8,8 +8,8 @@ spec:
   project: infra
   source:
     repoURL: https://github.com/dudo/homelab.git
-    path: infrastructure/system-upgrade-controller/overlays/local
     targetRevision: HEAD
+    path: infrastructure/system-upgrade-controller/overlays/local
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:

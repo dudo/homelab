@@ -8,8 +8,8 @@ spec:
   project: apps
   source:
     repoURL: https://github.com/dudo/homelab.git
-    path: applications/zigbee2MQTT/overlays/local
     targetRevision: HEAD
+    path: applications/zigbee2MQTT/overlays/local
   destination:
     server: https://kubernetes.default.svc
     namespace: home

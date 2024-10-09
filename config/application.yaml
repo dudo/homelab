@@ -6,10 +6,13 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  source:
-    repoURL: https://github.com/dudo/homelab.git
-    path: config/argocd
-    targetRevision: HEAD
+  sources:
+    - repoURL: https://github.com/dudo/homelab.git
+      targetRevision: HEAD
+      path: config/argocd
+    - repoURL: https://github.com/dudo/homelab.git
+      targetRevision: HEAD
+      path: config/repositories
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
