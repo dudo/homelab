@@ -162,7 +162,7 @@ When spinning up the cluster for the first time, there are 3 primary steps.
     kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
     kubectl apply -f ./config/application.yaml
-    kubectl apply -f ./root-app.yaml
+    kubectl apply -f ./root.yaml
 
     # TODO: Add Gateway API setup
     kubectl port-forward svc/argocd-server -n argocd 8080:443
