@@ -35,9 +35,9 @@ spec:
           helm:
             valueFiles:
               - '$values/charts/{{appName}}/values.yaml'
-            parameters:
-              - name: clusterName
-                value: local
+            # parameters:
+            #   - name: clusterName
+            #     value: local
         - repoURL: https://github.com/dudo/homelab.git
           targetRevision: HEAD
           ref: values
