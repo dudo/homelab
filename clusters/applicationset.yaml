@@ -9,6 +9,7 @@ spec:
     - list:
         elements:
           - cluster: local
+          - cluster: turing-pi
   template:
     metadata:
       name: '{{cluster}}-cluster'

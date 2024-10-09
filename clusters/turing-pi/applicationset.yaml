@@ -8,7 +8,7 @@ spec:
   generators:
     - list:
         elements:
-          # - resource: apps
+          - resource: apps
           - resource: infra
   template:
     metadata:
