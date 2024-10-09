@@ -2,22 +2,22 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: clusters
+  name: local-resources
   namespace: argocd
 spec:
   generators:
     - list:
         elements:
-          - cluster: local
+          - resource: infra
   template:
     metadata:
-      name: '{{cluster}}-cluster'
+      name: local-{{resource}}
     spec:
       project: default
       source:
         repoURL: https://github.com/dudo/homelab.git
         targetRevision: HEAD
-        path: 'clusters/{{cluster}}'
+        path: 'clusters/local/{{resource}}'
       destination:
         server: https://kubernetes.default.svc
         namespace: argocd

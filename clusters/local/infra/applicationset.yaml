@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: turing-pi-charts
+  name: local-charts
   namespace: argocd
 spec:
   generators:
@@ -23,7 +23,7 @@ spec:
 
   template:
     metadata:
-      name: turing-pi-{{appName}}
+      name: local-{{appName}}
       finalizers:
         - resources-finalizer.argocd.argoproj.io
     spec:
@@ -34,10 +34,10 @@ spec:
         chart: '{{appName}}'
         helm:
           valueFiles:
-            - 'clusters/turing-pi/infra/charts/{{appName}}/values.yaml'
+            - 'clusters/local/infra/charts/{{appName}}/values.yaml'
           parameters:
             - name: clusterName
-              value: turing-pi
+              value: local
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{appName}}'
