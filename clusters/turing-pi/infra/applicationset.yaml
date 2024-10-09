@@ -24,6 +24,8 @@ spec:
   template:
     metadata:
       name: turing-pi-{{appName}}
+      finalizers:
+        - resources-finalizer.argocd.argoproj.io
     spec:
       project: infra
       source:
@@ -32,7 +34,7 @@ spec:
         chart: '{{appName}}'
         helm:
           valueFiles:
-            - './charts/{{appName}}/values.yaml'
+            - 'charts/{{appName}}/values.yaml'
           parameters:
             - name: clusterName
               value: turing-pi
