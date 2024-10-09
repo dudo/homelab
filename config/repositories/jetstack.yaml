@@ -1,8 +1,11 @@
 ---
-apiVersion: argoproj.io/v1alpha1
-kind: Repository
+apiVersion: v1
+kind: Secret
 metadata:
+  name: jetstack-repo
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
   name: jetstack
-spec:
   url: https://charts.jetstack.io
   type: helm
