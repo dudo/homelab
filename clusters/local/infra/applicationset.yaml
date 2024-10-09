@@ -28,16 +28,20 @@ spec:
         - resources-finalizer.argocd.argoproj.io
     spec:
       project: infra
-      source:
-        repoURL: '{{repoURL}}'
-        targetRevision: '{{version}}'
-        chart: '{{appName}}'
-        helm:
-          valueFiles:
-            - 'clusters/local/infra/charts/{{appName}}/values.yaml'
-          parameters:
-            - name: clusterName
-              value: local
+      sources:
+        - chart: '{{appName}}'
+          targetRevision: '{{version}}'
+          repoURL: '{{repoURL}}'
+          helm:
+            valueFiles:
+              - '$values/{{appName}}/values.yaml'
+            parameters:
+              - name: clusterName
+                value: local
+        - repoURL: https://github.com/dudo/homelab.git
+          targetRevision: HEAD
+          path: charts
+          ref: values
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{appName}}'
