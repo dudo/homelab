@@ -158,10 +158,13 @@ When spinning up the cluster for the first time, there are 3 primary steps.
     <https://argo-cd.readthedocs.io/en/stable/getting_started/#1-install-argo-cd>
 
     ```sh
+    # Create the namespace and install ArgoCD
     kubectl create namespace argocd
     kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
+    # Instruct ArgoCD to manage itself via GitOps
     kubectl apply -f ./config/application.yaml
+    # Give ArgoCD an App of apps to manage via GitOps
     kubectl apply -f ./root.yaml
 
     # TODO: Add Gateway API setup
