@@ -9,8 +9,7 @@ spec:
     - list:
         elements:
           # - resource: apps
-          - resource: charts
-          # - resource: manifests
+          - resource: infra
   template:
     metadata:
       name: turing-pi-{{resource}}
