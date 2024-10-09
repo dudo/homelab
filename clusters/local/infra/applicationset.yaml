@@ -10,16 +10,16 @@ spec:
         elements:
           - appName: cert-manager
             repoURL: https://charts.jetstack.io
-            version: v1.11.0
+            version: v1.16.0
           - appName: metrics-server
             repoURL: https://kubernetes-sigs.github.io/metrics-server
-            version: 5.11.0
+            version: 3.12.2
           - appName: node-feature-discovery
             repoURL: https://kubernetes-sigs.github.io/node-feature-discovery
-            version: v0.13.0
+            version: v0.16.4
           - appName: kubernetes-dashboard
             repoURL: https://kubernetes.github.io/dashboard/
-            version: 6.0.0
+            version: 7.8.0
 
   template:
     metadata:

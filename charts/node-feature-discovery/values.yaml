@@ -1,5 +1,2 @@
+# https://artifacthub.io/packages/helm/node-feature-discovery/node-feature-discovery?modal=values
 ---
-featureGates:
-  - name: CustomFeature
-    matchOn:
-      - feature1: true

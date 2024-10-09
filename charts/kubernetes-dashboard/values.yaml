@@ -1,9 +1,2 @@
+# https://github.com/kubernetes/dashboard/blob/master/charts/kubernetes-dashboard/values.yaml
 ---
-serviceAccount:
-  create: true
-rbac:
-  create: true
-ingress:
-  enabled: true
-  hosts:
-    - '{{ .Values.clusterName }}.example.com'
